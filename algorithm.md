@@ -9,7 +9,7 @@
 [MarkDown方式的锚点](#325.摆动排序)
 
 
-# 324.摆动排序
+## 324.摆动排序
 
 ```java
 /**
@@ -39,3 +39,26 @@ public void wiggleSort(int[] nums) {
 }
 ```
 
+### 606. Construct String from Binary Tree 根据二叉树创建字符串
+
+```java
+class Solution {
+    public String tree2str(TreeNode root) {
+
+
+        if (root!=null){
+            // left and right is not null
+            if (root.left!=null && root.right!=null){
+                return root.val+"("+tree2str(root.left)+")("+tree2str(root.right)+")";
+            }else if (root.left!=null && root.right==null){
+                return root.val+"("+tree2str(root.left)+")";
+            }else if (root.left==null && root.right!=null){
+                return root.val+"()("+tree2str(root.right)+")";
+            }else
+                return String.valueOf(root.val);
+        }
+       return "";
+    }
+
+}
+```
