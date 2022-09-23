@@ -9,6 +9,7 @@
  - [x] [5. 最长回文子串](#最长回文子串)
  - [x] [3. 无重复字符的最长子串](#无重复字符的最长子串)
  - [ ] [15. 三数之和](#15-三数之和)
+-  [x] [217. 存在重复元素](#217-存在重复元素)
 ### 324.摆动排序
 
 ```java
@@ -234,6 +235,35 @@ public List<List<Integer>> threeSum(int[] nums) {
                 }
             }
             return result;
+        }
+
+```
+
+
+### 217. 存在重复元素
+```java
+/**
+1.hash
+2.sort
+**/
+        public boolean containsDuplicate(int[] nums) {
+            Arrays.sort(nums);
+            if (nums.length==1) return false;
+            for (int i=1;i<nums.length;i++){
+                if (nums[i-1]==nums[i]) return true;
+            }
+            return false;
+        }
+        public boolean containsDuplicateHash(int[] nums) {
+            HashSet<Integer> data = new HashSet<>();
+            for (int num : nums) {
+                if (!data.contains(num))
+                    data.add(num);
+                else {
+                    return false;
+                }
+            }
+            return true;
         }
 
 ```
